@@ -72,4 +72,21 @@ ConfigPage {
 		}
 	}
 
+	ConfigSection {
+		label: i18n("Unity Pager Theme")
+
+		ConfigTriStateCheckBox {
+			text: i18n("Use Unity 7 Theme")
+			configKey: 'useUnityTheme'
+		}
+
+		ConfigLabel {
+			text: i18n("Should we use a Virtual Desktop indicator similar to Unity 7? This feature is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a> desktop theme by default.")
+		}
+
+		Label {
+			text: i18n("<b>Current Desktop Theme:</b> %1", theme.themeName)
+		}
+	}
+
 }

@@ -8,11 +8,15 @@ import "lib"
 Item {
 	id: widget
 
+	UnityThemeDetector {
+		id: unityThemeDetector
+	}
+
 	Plasmoid.onActivated: widget.activate()
 
 	Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
-	Plasmoid.fullRepresentation: AppletIcon {
-		id: icon
+	Plasmoid.fullRepresentation: Item {
+		id: panelItem
 
 		readonly property bool inPanel: (plasmoid.location == PlasmaCore.Types.TopEdge
 			|| plasmoid.location == PlasmaCore.Types.RightEdge
@@ -44,8 +48,20 @@ Item {
 		Layout.maximumWidth: inPanel ? units.iconSizeHints.panel : -1
 		Layout.maximumHeight: inPanel ? units.iconSizeHints.panel : -1
 
-		source: plasmoid.configuration.icon
-		active: mouseArea.containsMouse
+		AppletIcon {
+			id: icon
+			anchors.fill: parent
+			visible: !unityThemeDetector.useUnityTheme
+
+			source: plasmoid.configuration.icon
+			active: mouseArea.containsMouse
+		}
+		Loader {
+			anchors.fill: parent
+			active: unityThemeDetector.useUnityTheme
+			visible: active
+			source: "Unity7Workspaces.qml"
+		}
 
 		MouseArea {
 			id: mouseArea
