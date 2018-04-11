@@ -43,32 +43,27 @@ Item {
 
 		readonly property int effectiveRows: {
 			var rows = 1
+			var columns = Math.floor(pagerModel.count / pagerModel.layoutRows)
 
-			if (pagerModel.count == 0) {
-				return 1
-			} else if (pagerModel.count <= 6) {
-				return 2
-			} else if (pagerModel.count <= 12) {
-				return 3
-			} else {
-				return 4
+			if (pagerModel.count % pagerModel.layoutRows > 0) {
+				columns += 1
 			}
 
-			rows = Math.floor(pagerModel.count / columns);
+			rows = Math.floor(pagerModel.count / columns)
 
 			if (pagerModel.count % columns > 0) {
-				rows += 1;
+				rows += 1
 			}
 
-			return rows;
+			return rows
 		}
 
 		readonly property int effectiveColumns: {
 			if (!pagerModel.count) {
-				return 1;
+				return 1
 			}
 
-			return Math.ceil(pagerModel.count / effectiveRows);
+			return Math.ceil(pagerModel.count / effectiveRows)
 		}
 
 
