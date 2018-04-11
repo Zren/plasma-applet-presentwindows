@@ -8,3 +8,4 @@ A simple button that'll trigger the "Present Windows" desktop effect. It uses th
 
 ![](https://i.imgur.com/2lpnrr7.png)
 
+![](https://i.imgur.com/9RCDAfa.png)

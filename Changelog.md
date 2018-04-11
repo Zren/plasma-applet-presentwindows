@@ -1,3 +1,7 @@
+## v5 - April 11 2017
+
+* Add Unity 7 virtual desktop indicator style for use with the Unity Ambiance desktop theme (used in the United Look and Feel).
+
 ## v4 - July 8 2017
 
 * Add ability to change the panel icon.
