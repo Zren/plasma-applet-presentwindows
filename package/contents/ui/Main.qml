@@ -12,6 +12,8 @@ Item {
 		id: unityThemeDetector
 	}
 
+	property bool disableLatteParabolicIcon: true // Don't hide the representation in Latte (https://github.com/psifidotos/Latte-Dock/issues/983)
+
 	Plasmoid.onActivated: widget.activate()
 
 	Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
