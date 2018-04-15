@@ -1,4 +1,8 @@
-## v5 - April 11 2017
+## v6 - April 14 2018
+
+* Force Latte Dock v0.7.5+ to not hide this widget.
+
+## v5 - April 11 2018
 
 * Add Unity 7 virtual desktop indicator style for use with the Unity Ambiance desktop theme (used in the United Look and Feel).
 
