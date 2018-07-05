@@ -6,7 +6,7 @@ QtObject {
 	}
 	readonly property int configState: plasmoid.configuration.useUnityTheme
 	readonly property bool useUnityTheme: {
-		console.log('useUnityTheme', configState, shouldUseUnityTheme)
+		// console.log('useUnityTheme', configState, shouldUseUnityTheme)
 		if (configState == 0) { // checked
 			return true
 		} else if (configState == 1) { // partically checked
