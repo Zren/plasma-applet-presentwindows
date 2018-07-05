@@ -8,12 +8,14 @@ Item {
 	readonly property bool usingPackageSvg: filename // plasmoid.file() returns "" if file doesn't exist.
 	readonly property string filename: source ? plasmoid.file("", "icons/" + source + '.svg') : ""
 	readonly property int minSize: Math.min(width, height)
+	property bool smooth: true
 
 	PlasmaCore.IconItem {
 		anchors.fill: parent
 		visible: !appletIcon.usingPackageSvg
 		source: appletIcon.usingPackageSvg ? '' : appletIcon.source
 		active: appletIcon.active
+		smooth: appletIcon.smooth
 	}
 
 	PlasmaCore.SvgItem {
@@ -24,6 +26,8 @@ Item {
 		readonly property real heightRatio: naturalSize.height / maxSize
 		width: appletIcon.minSize * widthRatio
 		height: appletIcon.minSize * heightRatio
+
+		smooth: appletIcon.smooth
 
 		visible: appletIcon.usingPackageSvg
 		svg: PlasmaCore.Svg {
