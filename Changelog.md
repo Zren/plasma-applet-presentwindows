@@ -1,3 +1,8 @@
+## v7 - August 4 2018
+
+* Add a 22px icon, with pathing done by @andreyorst.
+* Make sure the bundled icon is always smooth, even on older versions of plasma.
+
 ## v6 - April 14 2018
 
 * Force Latte Dock v0.7.5+ to not hide this widget.
