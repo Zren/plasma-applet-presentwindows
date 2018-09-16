@@ -12,6 +12,10 @@ ConfigSection {
 		id: executable
 		property string readStateCommand: 'qdbus org.kde.KWin /Effects isEffectLoaded ' + effectId
 		property string toggleStateCommand: 'qdbus org.kde.KWin /Effects toggleEffect ' + effectId
+
+		// For some reason, the toggleEffect qdbus function does not save to kwinrc.
+		// So we need to manually write the new state to it, so that the next time
+		// kwin is launched (next reboot), the desktop effect is still enabled/disabled.
 		property string saveSateCommand: 'kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key ' + effectId + 'Enabled' // saveSateCommand + ' ' + value
 		property bool saveOnRead: false
 
