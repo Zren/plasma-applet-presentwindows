@@ -69,6 +69,11 @@ ConfigPage {
 		ConfigIcon {
 			configKey: 'icon'
 			defaultValue: 'presentwindows-24px'
+			presetValues: [
+				'presentwindows-24px',
+				'presentwindows-22px',
+				'presentwindows-16px',
+			]
 		}
 	}
 
