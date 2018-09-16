@@ -1,4 +1,4 @@
-// Version 2
+// Version 3
 // Forked to use AppletIcon
 
 import QtQuick 2.0
@@ -27,6 +27,14 @@ RowLayout {
 	}
 	property int previewIconSize: units.iconSizes.medium
 	property string defaultValue: "start-here-kde"
+	property var presetValues: []
+
+	onPresetValuesChanged: iconMenu.refresh()
+
+	// Used for binding in presetValue menu loop
+	function setValue(val) {
+		configIcon.value = val
+	}
 
 	// org.kde.plasma.kickoff
 	Button {
@@ -69,15 +77,59 @@ RowLayout {
 			id: iconMenu
 			visualParent: iconButton
 
-			PlasmaComponents.MenuItem {
-				text: i18ndc("plasma_applet_org.kde.plasma.kickoff", "@item:inmenu Open icon chooser dialog", "Choose...")
-				icon: "document-open"
-				onClicked: iconDialog.open()
+			function newMenuItem(parent) {
+				return Qt.createQmlObject(
+					"import org.kde.plasma.components 2.0 as PlasmaComponents;" +
+					"PlasmaComponents.MenuItem {}",
+					parent);
 			}
-			PlasmaComponents.MenuItem {
-				text: i18ndc("plasma_applet_org.kde.plasma.kickoff", "@item:inmenu Reset icon to default", "Clear Icon")
-				icon: "edit-clear"
-				onClicked: configIcon.value = defaultValue
+
+			function newSeparator(parent) {
+				return Qt.createQmlObject(
+					"import org.kde.plasma.components 2.0 as PlasmaComponents;" +
+					"PlasmaComponents.MenuItem { separator: true }",
+					parent);
+			}
+
+			function refresh() {
+				clearMenuItems()
+
+				// Choose...
+				var menuItem = newMenuItem(iconMenu)
+				menuItem.text = i18ndc("plasma_applet_org.kde.plasma.kickoff", "@item:inmenu Open icon chooser dialog", "Choose...")
+				menuItem.icon = "document-open"
+				menuItem.clicked.connect(function(){
+					iconDialog.open()
+				})
+				iconMenu.addMenuItem(menuItem)
+
+				// Clear
+				var menuItem = newMenuItem(iconMenu)
+				menuItem.text = i18ndc("plasma_applet_org.kde.plasma.kickoff", "@item:inmenu Reset icon to default", "Clear Icon")
+				menuItem.icon = "edit-clear"
+				menuItem.clicked.connect(function(){
+					configIcon.value = defaultValue
+				})
+				iconMenu.addMenuItem(menuItem)
+
+				// Preset Values
+				if (configIcon.presetValues.length > 0) {
+					menuItem = newSeparator(iconMenu)
+					iconMenu.addMenuItem(menuItem)
+
+					for (var i = 0; i < configIcon.presetValues.length; i++) {
+						var presetValue = configIcon.presetValues[i]
+						menuItem = newMenuItem(iconMenu)
+						menuItem.text = presetValue
+						menuItem.icon = presetValue
+						menuItem.clicked.connect(configIcon.setValue.bind(this, presetValue))
+						iconMenu.addMenuItem(menuItem)
+					}
+				}
+			}
+
+			Component.onCompleted: {
+				refresh()
 			}
 		}
 	}
