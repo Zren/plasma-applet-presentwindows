@@ -16,7 +16,7 @@ ConfigSection {
 		// For some reason, the toggleEffect qdbus function does not save to kwinrc.
 		// So we need to manually write the new state to it, so that the next time
 		// kwin is launched (next reboot), the desktop effect is still enabled/disabled.
-		property string saveSateCommand: 'kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key ' + effectId + 'Enabled' // saveSateCommand + ' ' + value
+		property string saveStateCommand: 'kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key ' + effectId + 'Enabled' // saveStateCommand + ' ' + value
 		property bool saveOnRead: false
 
 		function readState() {
@@ -27,7 +27,7 @@ ConfigSection {
 		}
 		function saveState() {
 			var isCurrentlyEnabled = toggleButton.checked
-			executable.exec(saveSateCommand + ' ' + (isCurrentlyEnabled ? 'true' : 'false'))
+			executable.exec(saveStateCommand + ' ' + (isCurrentlyEnabled ? 'true' : 'false'))
 		}
 		Component.onCompleted: {
 			readState()
@@ -47,7 +47,7 @@ ConfigSection {
 			} else if (command == toggleStateCommand) {
 				saveOnRead = true
 				readState()
-			} else if (startsWith(command, saveSateCommand)) {
+			} else if (startsWith(command, saveStateCommand)) {
 
 			}
 		}
