@@ -1,3 +1,8 @@
+## v8 - September 16 2018
+
+* Show preset values for the 22px and 16px icon in the config icon dropdown menu.
+* Fix the Desktop Effect toggle buttons not persisting accross reboots (Issue #1).
+
 ## v7 - August 4 2018
 
 * Add a 22px icon, with pathing done by @andreyorst.
