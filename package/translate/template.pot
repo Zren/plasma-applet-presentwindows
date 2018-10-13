@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: presentwindows \n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-presentwindows\n"
-"POT-Creation-Date: 2018-09-16 10:53-0400\n"
+"POT-Creation-Date: 2018-10-13 17:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "<b>Version:</b> %1"
 msgstr ""
 
-#: ../contents/ui/lib/DesktopEffectToggle.qml:62
+#: ../contents/ui/lib/DesktopEffectToggle.qml:66
 msgid "Enabled"
 msgstr ""
 
