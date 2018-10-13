@@ -35,3 +35,4 @@ Or if you know how to make a pull request
 |  Locale  |  Lines  | % Done|
 |----------|---------|-------|
 | Template |      17 |       |
+| Dutch (Netherlands) |      17 |      100 |
