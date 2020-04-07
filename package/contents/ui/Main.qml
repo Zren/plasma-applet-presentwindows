@@ -100,6 +100,10 @@ Item {
 		executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "ShowDesktopGrid"')
 	}
 
+	function action_toggleParachute() {
+		executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Parachute"')
+	}
+
 	function activate() {
 		if (plasmoid.configuration.clickCommand == 'ExposeAll') {
 			action_exposeAll()
@@ -109,6 +113,8 @@ Item {
 			action_exposeWindowClass()
 		} else if (plasmoid.configuration.clickCommand == 'ShowDesktopGrid') {
 			action_showDesktopGrid()
+		} else if (plasmoid.configuration.clickCommand == 'Parachute') {
+			action_toggleParachute()
 		}
 	}
 

@@ -60,6 +60,23 @@ ConfigPage {
 			exclusiveGroup: clickCommandGroup
 			onClicked: cfg_clickCommand = 'ShowDesktopGrid'
 		}
+
+		//---
+		KPackageModel {
+			id: kwinScriptModel
+			packageType: 'KWin/Script'
+		}
+		Repeater {
+			model: [
+				'Parachute',
+			]
+			RadioButton {
+				text: model.pluginId
+				checked: cfg_clickCommand == model.pluginId
+				exclusiveGroup: clickCommandGroup
+				onClicked: cfg_clickCommand = model.pluginId
+			}
+		}
 	}
 
 
