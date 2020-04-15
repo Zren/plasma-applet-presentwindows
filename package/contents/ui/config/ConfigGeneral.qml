@@ -68,15 +68,22 @@ ConfigPage {
 		}
 		Repeater {
 			model: [
-				'Parachute',
+				{
+					pluginId: 'Parachute',
+					url: 'https://store.kde.org/p/1370195/',
+				},
 			]
-			RadioButton {
-				property string pluginId: modelData
-				text: pluginId
-				visible: kwinScriptModel.contains(pluginId)
-				exclusiveGroup: clickCommandGroup
-				checked: cfg_clickCommand == pluginId
-				onClicked: cfg_clickCommand = pluginId
+			RowLayout {
+				RadioButton {
+					text: modelData.pluginId
+					enabled: kwinScriptModel.contains(modelData.pluginId)
+					exclusiveGroup: clickCommandGroup
+					checked: cfg_clickCommand == modelData.pluginId
+					onClicked: cfg_clickCommand = modelData.pluginId
+				}
+				LinkText {
+					text: '<a href="' + modelData.url + '">' + modelData.url + '</a>'
+				}
 			}
 		}
 	}
