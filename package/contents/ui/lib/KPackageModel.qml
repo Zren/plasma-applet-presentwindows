@@ -55,7 +55,7 @@ ListModel {
 	function contains(pluginId) {
 		for (var i = 0; i < count; i++) {
 			var item = get(i)
-			if (item.id == pluginId) {
+			if (item.pluginId == pluginId) {
 				return true
 			}
 		}

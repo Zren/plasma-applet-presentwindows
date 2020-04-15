@@ -71,10 +71,12 @@ ConfigPage {
 				'Parachute',
 			]
 			RadioButton {
-				text: model.pluginId
-				checked: cfg_clickCommand == model.pluginId
+				property string pluginId: modelData
+				text: pluginId
+				visible: kwinScriptModel.contains(pluginId)
 				exclusiveGroup: clickCommandGroup
-				onClicked: cfg_clickCommand = model.pluginId
+				checked: cfg_clickCommand == pluginId
+				onClicked: cfg_clickCommand = pluginId
 			}
 		}
 	}
