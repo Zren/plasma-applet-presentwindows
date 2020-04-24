@@ -1,3 +1,8 @@
+## v9 - April 24 2020
+
+* Add Parachute (KWin Script) support (Issue #9)
+* Added Dutch translations by @Vistaus (Pull Request #3)
+
 ## v8 - September 16 2018
 
 * Show preset values for the 22px and 16px icon in the config icon dropdown menu.
