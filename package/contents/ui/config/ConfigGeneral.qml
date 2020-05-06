@@ -92,7 +92,7 @@ ConfigPage {
 	ConfigSection {
 		label: i18n("Icon")
 
-		ConfigIcon {
+		ConfigAppletIcon {
 			configKey: 'icon'
 			defaultValue: 'presentwindows-24px'
 			presetValues: [
