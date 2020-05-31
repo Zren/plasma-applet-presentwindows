@@ -35,3 +35,4 @@ Or if you know how to make a pull request
 |----------|---------|-------|
 | Template |      17 |       |
 | nl_NL    |   17/17 |  100% |
+| pl       |   16/17 |   94% |
