@@ -5,6 +5,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 import ".."
 import "../lib"
+import "../libconfig" as LibConfig
 
 ConfigPage {
 	id: page
@@ -104,21 +105,29 @@ ConfigPage {
 		}
 	}
 
-	ConfigSection {
-		label: i18n("Unity Pager Theme")
 
-		ConfigTriStateCheckBox {
-			text: i18n("Use Unity 7 Theme")
-			configKey: 'useUnityTheme'
-		}
 
-		ConfigLabel {
-			text: i18n("Should we use a Virtual Desktop indicator similar to Unity 7? This feature is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a> desktop theme by default.")
-		}
+	//-------------------------------------------------------
+	LibConfig.Heading {
+		text: i18n("Unity Pager Theme")
+	}
 
-		Label {
-			text: i18n("<b>Current Desktop Theme:</b> %1", PlasmaCore.Theme.themeName)
-		}
+	LibConfig.RadioButtonGroup {
+		configKey: 'useUnityTheme'
+		Kirigami.FormData.label: i18n("Use Unity 7 Theme")
+		model: [
+			{ value: 0, text: i18n("Never") },
+			{ value: 1, text: i18n("When Plasma Style is Unity Ambiance") },
+			{ value: 2, text: i18n("Always") },
+		]
+	}
+
+	ConfigLabel {
+		text: i18n("Should we use a Virtual Desktop indicator similar to Unity 7? This feature is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a> Plasma Style by default.")
+	}
+
+	Label {
+		text: i18n("<b>Current Plasma Style:</b> %1", PlasmaCore.Theme.themeName)
 	}
 
 }

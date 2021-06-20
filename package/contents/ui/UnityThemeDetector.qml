@@ -8,12 +8,12 @@ QtObject {
 	readonly property int configState: plasmoid.configuration.useUnityTheme
 	readonly property bool useUnityTheme: {
 		// console.log('useUnityTheme', configState, shouldUseUnityTheme)
-		if (configState == 0) { // checked
-			return true
-		} else if (configState == 1) { // partically checked
-			return shouldUseUnityTheme
-		} else { // configState == 2 (not checked)
+		if (configState == 0) { // Never
 			return false
+		} else if (configState == 1) { // DependsOnPlasmaStyle
+			return shouldUseUnityTheme
+		} else { // configState == 2 Always
+			return true
 		}
 	}
 }
