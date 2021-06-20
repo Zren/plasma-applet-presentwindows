@@ -37,7 +37,7 @@ Item {
 		anchors.topMargin: taskFrame.margins.top
 		anchors.bottomMargin: taskFrame.margins.bottom
 
-		// spacing: units.devicePixelRatio
+		// spacing: PlasmaCore.Units.devicePixelRatio
 		rows: effectiveRows
 		columns: effectiveColumns
 
@@ -103,7 +103,7 @@ Item {
 					anchors.top: parent.top
 					anchors.right: parent.right
 					anchors.bottom: parent.bottom
-					width: Math.round(1 * units.devicePixelRatio)
+					width: Math.round(1 * PlasmaCore.Units.devicePixelRatio)
 					color: pagerItemGrid.seperatorColor
 				}
 				Rectangle {
@@ -112,7 +112,7 @@ Item {
 					anchors.left: parent.left
 					anchors.bottom: parent.bottom
 					anchors.right: parent.right
-					height: Math.round(1 * units.devicePixelRatio)
+					height: Math.round(1 * PlasmaCore.Units.devicePixelRatio)
 					color: pagerItemGrid.seperatorColor
 				}
 

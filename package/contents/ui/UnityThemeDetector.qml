@@ -1,8 +1,9 @@
 import QtQuick 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
 
 QtObject {
 	readonly property bool shouldUseUnityTheme: {
-		return theme.themeName == 'UnityAmbiance'
+		return PlasmaCore.Theme.themeName == 'UnityAmbiance'
 	}
 	readonly property int configState: plasmoid.configuration.useUnityTheme
 	readonly property bool useUnityTheme: {
