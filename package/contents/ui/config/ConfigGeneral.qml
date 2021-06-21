@@ -1,15 +1,18 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.0
+
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.5 as Kirigami
 
 import ".."
 import "../lib"
 import "../libconfig" as LibConfig
 
-ConfigPage {
-	id: page
-	showAppletVersion: true
+
+Kirigami.FormLayout {
+	id: formLayout
 
 	property string cfg_clickCommand
 
@@ -34,34 +37,18 @@ ConfigPage {
 	}
 
 
-	ExclusiveGroup { id: clickCommandGroup }
-	ConfigSection {
-		label: i18n("Click")
 
-		RadioButton {
-			text: i18nd("kwin_effects", "Toggle Present Windows (All desktops)")
-			checked: cfg_clickCommand == 'ExposeAll'
-			exclusiveGroup: clickCommandGroup
-			onClicked: cfg_clickCommand = 'ExposeAll'
-		}
-		RadioButton {
-			text: i18nd("kwin_effects", "Toggle Present Windows (Current desktop)")
-			checked: cfg_clickCommand == 'Expose'
-			exclusiveGroup: clickCommandGroup
-			onClicked: cfg_clickCommand = 'Expose'
-		}
-		RadioButton {
-			text: i18nd("kwin_effects", "Toggle Present Windows (Window class)")
-			checked: cfg_clickCommand == 'ExposeClass'
-			exclusiveGroup: clickCommandGroup
-			onClicked: cfg_clickCommand = 'ExposeClass'
-		}
-		RadioButton {
-			text: i18nd("kwin_effects", "Toggle Desktop Grid")
-			checked: cfg_clickCommand == 'ShowDesktopGrid'
-			exclusiveGroup: clickCommandGroup
-			onClicked: cfg_clickCommand = 'ShowDesktopGrid'
-		}
+	LibConfig.RadioButtonGroup {
+		id: clickCommandGroup
+		configKey: 'clickCommand'
+		Kirigami.FormData.label: i18n("Click")
+		Kirigami.FormData.buddyFor: null // TODO: atm it attaches to Parachute since it loads first. It needs to bind to ExposeAll.
+		model: [
+			{ value: 'ExposeAll', text: i18nd("kwin_effects", "Toggle Present Windows (All desktops)") },
+			{ value: 'Expose', text: i18nd("kwin_effects", "Toggle Present Windows (Current desktop)") },
+			{ value: 'ExposeClass', text: i18nd("kwin_effects", "Toggle Present Windows (Window class)") },
+			{ value: 'ShowDesktopGrid', text: i18nd("kwin_effects", "Toggle Desktop Grid") },
+		]
 
 		//---
 		KPackageModel {
@@ -69,6 +56,7 @@ ConfigPage {
 			packageType: 'KWin/Script'
 		}
 		Repeater {
+			visible: kwinScriptModel.loaded
 			model: [
 				{
 					pluginId: 'Parachute',
@@ -76,12 +64,17 @@ ConfigPage {
 				},
 			]
 			RowLayout {
-				RadioButton {
+				QQC2.RadioButton {
 					text: modelData.pluginId
 					enabled: kwinScriptModel.contains(modelData.pluginId)
-					exclusiveGroup: clickCommandGroup
-					checked: cfg_clickCommand == modelData.pluginId
-					onClicked: cfg_clickCommand = modelData.pluginId
+					QQC2.ButtonGroup.group: clickCommandGroup.group
+					checked: modelData.value === configValue
+					onClicked: {
+						focus = true
+						if (clickCommandGroup.configKey) {
+							plasmoid.configuration[clickCommandGroup.configKey] = modelData.value
+						}
+					}
 				}
 				LinkText {
 					text: '<a href="' + modelData.url + '">' + modelData.url + '</a>'
