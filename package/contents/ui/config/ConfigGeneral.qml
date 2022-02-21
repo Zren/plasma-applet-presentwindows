@@ -60,6 +60,12 @@ ConfigPage {
 			exclusiveGroup: clickCommandGroup
 			onClicked: cfg_clickCommand = 'ShowDesktopGrid'
 		}
+        RadioButton {
+            text: i18nd("kwin_effects", "Toggle Overview")
+            checked: cfg_clickCommand == 'Overview'
+            exclusiveGroup: clickCommandGroup
+            onClicked: cfg_clickCommand = 'Overview'
+        }
 
 		//---
 		KPackageModel {

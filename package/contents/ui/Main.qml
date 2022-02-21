@@ -103,6 +103,9 @@ Item {
 	function action_toggleParachute() {
 		executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Parachute"')
 	}
+    function action_showOverview() {
+        executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Overview"')
+    }
 
 	function activate() {
 		if (plasmoid.configuration.clickCommand == 'ExposeAll') {
@@ -115,7 +118,9 @@ Item {
 			action_showDesktopGrid()
 		} else if (plasmoid.configuration.clickCommand == 'Parachute') {
 			action_toggleParachute()
-		}
+        } else if (plasmoid.configuration.clickCommand == 'Overview') {
+            action_showOverview()
+        }
 	}
 
 	Component.onCompleted: {
@@ -123,6 +128,7 @@ Item {
 		plasmoid.setAction("exposeDesktop", i18n("Present Windows (Current desktop)"), "window");
 		plasmoid.setAction("exposeWindowClass", i18n("Present Windows (Window class)"), "window");
 		plasmoid.setAction("showDesktopGrid", i18n("Show Desktop Grid"), "view-grid");
+        plasmoid.setAction("showOverview", i18n("Show Overview"), "view-grid");
 
 		// plasmoid.action('configure').trigger() // Uncomment to open the config window on load.
 	}
