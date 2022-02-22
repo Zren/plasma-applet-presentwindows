@@ -100,10 +100,11 @@ ConfigPage {
 
 		ConfigAppletIcon {
 			configKey: 'icon'
-			defaultValue: 'presentwindows-24px'
+            defaultValue: 'presentwindows-32px'
 			presetValues: [
-				'presentwindows-24px',
-				'presentwindows-22px',
+                'presentwindows-64px',
+                'presentwindows-48px',
+                'presentwindows-32px',
 				'presentwindows-16px',
 			]
 		}

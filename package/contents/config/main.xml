@@ -10,7 +10,7 @@
       <default>ExposeAll</default>
     </entry>
     <entry name="icon" type="String">
-      <default>presentwindows-24px</default>
+      <default>presentwindows-32px</default>
     </entry>
     <entry name="useUnityTheme" type="UInt">
       <label>Uses a Unity 7 virtual desktop theme when using the UnityAmbiance desktop theme (when set to 1) or any desktop theme (when set to 0). Disabled when set to 2.</label>

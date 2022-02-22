@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   version="1"
+   id="svg25"
+   sodipodi:docname="presentwindows-48px.svg"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview27"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="true"
+     inkscape:zoom="11.600971"
+     inkscape:cx="21.85162"
+     inkscape:cy="23.963512"
+     inkscape:window-width="1440"
+     inkscape:window-height="685"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg25"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-nodes="true"
+     width="48px">
+    <inkscape:grid
+       type="xygrid"
+       id="grid844" />
+  </sodipodi:namedview>
+  <defs
+     id="defs3">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text {
+            color:#31363b;
+        }
+        .ColorScheme-Background {
+            color:#eff0f1;
+        }
+        .ColorScheme-Highlight {
+            color:#3daee9;
+        }</style>
+  </defs>
+  <g
+     id="g966"
+     transform="matrix(1.3100189,0,0,1.3100189,0.65973533,-2.5803402)">
+    <rect
+       style="opacity:1;fill:#575757;fill-opacity:1;stroke-width:0.857143"
+       id="rect946"
+       width="19.847042"
+       height="16.793652"
+       x="7.893218"
+       y="11.893218"
+       rx="1.5266954"
+       ry="1.5266954" />
+    <rect
+       style="opacity:1;fill:currentColor"
+       id="rect950"
+       width="16.793652"
+       height="12.976912"
+       x="14"
+       y="18"
+       rx="1.5266955"
+       ry="1.5266955"
+       class="ColorScheme-Highlight" />
+    <path
+       id="rect3111"
+       d="m 11,13 c -1.1079999,0 -2,0.892 -2,2 v 1 c 0,-1.108 0.8920001,-2 2,-2 h 22 c 1.108,0 2,0.892 2,2 v -1 c 0,-1.108 -0.892,-2 -2,-2 z"
+       transform="matrix(0.76334777,0,0,0.76334777,1.023088,1.9696969)"
+       style="opacity:0.1;fill:#ffffff;fill-opacity:1" />
+    <path
+       id="rect3116"
+       d="m 19,21 c -1.108,0 -2,0.892 -2,2 v 1 c 0,-1.108 0.892,-2 2,-2 h 18 c 1.108,0 2,0.892 2,2 v -1 c 0,-1.108 -0.892,-2 -2,-2 z"
+       transform="matrix(0.76334777,0,0,0.76334777,1.023088,1.9696969)"
+       style="opacity:0.1;fill:#ffffff;fill-opacity:1" />
+  </g>
+</svg>

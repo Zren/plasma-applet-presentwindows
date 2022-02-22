@@ -26,8 +26,9 @@ Item {
 		readonly property real minSize: Math.min(naturalSize.width, naturalSize.height)
 		readonly property real widthRatio: naturalSize.width / svgItem.minSize
 		readonly property real heightRatio: naturalSize.height / svgItem.minSize
-		width: appletIcon.minSize * widthRatio
-		height: appletIcon.minSize * heightRatio
+        //if not using largest scale, keep pixel perfect
+        width: naturalSize.width < 64 ? naturalSize.width : appletIcon.minSize * widthRatio
+        height: naturalSize.height < 64 ? naturalSize.height : appletIcon.minSize * heightRatio
 
 		smooth: appletIcon.smooth
 

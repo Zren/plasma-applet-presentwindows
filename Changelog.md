@@ -1,3 +1,10 @@
+## v10 - February 22 2022
+
+* Added support for new Overview effect
+* Changed icons to support Willow
+* The 64px icon scales for all panel sizes
+* Set 32px to default for Willow
+
 ## v9 - April 24 2020
 
 * Add Parachute (KWin Script) support (Issue #9)
