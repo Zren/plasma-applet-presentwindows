@@ -83,19 +83,20 @@ Kirigami.FormLayout {
 		}
 	}
 
-
-	ConfigSection {
-		label: i18n("Icon")
-
-		ConfigAppletIcon {
-			configKey: 'icon'
-			defaultValue: 'presentwindows-24px'
-			presetValues: [
-				'presentwindows-24px',
-				'presentwindows-22px',
-				'presentwindows-16px',
-			]
-		}
+	LibConfig.AppletIconField {
+		id: iconField
+		configKey: 'icon'
+		Kirigami.FormData.label: i18n("Icon")
+		defaultValue: 'presentwindows-24px'
+		presetValues: [
+			'presentwindows-24px',
+			'presentwindows-22px',
+			'presentwindows-16px',
+			'edit-group',
+			'window',
+			'view-app-grid-symbolic',
+			'homerun',
+		]
 	}
 
 
