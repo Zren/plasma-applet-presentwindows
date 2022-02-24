@@ -17,6 +17,16 @@ Kirigami.FormLayout {
 	property string cfg_clickCommand
 
 	DesktopEffectToggle {
+		id: overviewToggle
+		label: i18n("Overview Effect")
+		effectId: 'overview'
+		Label {
+			visible: overviewToggle.loaded && !overviewToggle.effectEnabled
+			text: i18n("Button will not work when the Overview desktop effect is disabled.")
+		}
+	}
+
+	DesktopEffectToggle {
 		id: presentWindowsToggle
 		label: i18n("Present Windows Effect")
 		effectId: 'presentwindows'
@@ -44,6 +54,7 @@ Kirigami.FormLayout {
 		Kirigami.FormData.label: i18n("Click")
 		Kirigami.FormData.buddyFor: null // TODO: atm it attaches to Parachute since it loads first. It needs to bind to ExposeAll.
 		model: [
+			{ value: 'Overview', text: i18nd("kwin_effects", "Toggle Overview") },
 			{ value: 'ExposeAll', text: i18nd("kwin_effects", "Toggle Present Windows (All desktops)") },
 			{ value: 'Expose', text: i18nd("kwin_effects", "Toggle Present Windows (Current desktop)") },
 			{ value: 'ExposeClass', text: i18nd("kwin_effects", "Toggle Present Windows (Window class)") },

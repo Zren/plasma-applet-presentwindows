@@ -84,6 +84,10 @@ Item {
 		}
 	}
 
+	function action_showOverview() {
+		executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Overview"')
+	}
+
 	function action_exposeAll() {
 		executable.exec('qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "ExposeAll"')
 	}
@@ -105,7 +109,9 @@ Item {
 	}
 
 	function activate() {
-		if (plasmoid.configuration.clickCommand == 'ExposeAll') {
+		if (plasmoid.configuration.clickCommand == 'Overview') {
+			action_showOverview()
+		} else if (plasmoid.configuration.clickCommand == 'ExposeAll') {
 			action_exposeAll()
 		} else if (plasmoid.configuration.clickCommand == 'Expose') {
 			action_exposeDesktop()
@@ -119,6 +125,7 @@ Item {
 	}
 
 	Component.onCompleted: {
+		plasmoid.setAction("showOverview", i18n("Show Overview"), "view-grid");
 		plasmoid.setAction("exposeAll", i18n("Present Windows (All desktops)"), "window");
 		plasmoid.setAction("exposeDesktop", i18n("Present Windows (Current desktop)"), "window");
 		plasmoid.setAction("exposeWindowClass", i18n("Present Windows (Window class)"), "window");
