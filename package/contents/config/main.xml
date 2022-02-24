@@ -9,7 +9,7 @@
     <entry name="clickCommand" type="String">
       <default>ExposeAll</default>
     </entry>
-    <entry name="icon" type="String">
+    <entry name="icon" type="Path">
       <default>presentwindows-24px</default>
     </entry>
     <entry name="useUnityTheme" type="UInt">
