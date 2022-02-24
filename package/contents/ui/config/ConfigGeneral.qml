@@ -93,7 +93,7 @@ Kirigami.FormLayout {
 						}
 					}
 				}
-				Lib.LinkText {
+				LibConfig.Label {
 					text: '<a href="' + modelData.url + '">' + modelData.url + '</a>'
 				}
 			}
@@ -138,9 +138,7 @@ Kirigami.FormLayout {
 		]
 	}
 
-	Lib.LinkText {
-		Layout.fillWidth: true
-		wrapMode: Text.Wrap
+	LibConfig.Label {
 		text: i18n("Should we use a Virtual Desktop indicator similar to Unity 7? This feature is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a> Plasma Style by default.")
 	}
 
