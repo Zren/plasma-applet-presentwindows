@@ -6,8 +6,7 @@ import QtQuick.Layouts 1.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kirigami 2.5 as Kirigami
 
-import ".."
-import "../lib"
+import "../lib" as Lib
 import "../libconfig" as LibConfig
 
 
@@ -19,15 +18,15 @@ Kirigami.FormLayout {
 		text: i18n("Behavior")
 		useThickTopMargin: false
 	}
-	DesktopEffectToggle {
+	Lib.DesktopEffectToggle {
 		id: overviewToggle
 		effectId: 'overview'
 	}
-	DesktopEffectToggle {
+	Lib.DesktopEffectToggle {
 		id: presentWindowsToggle
 		effectId: 'presentwindows'
 	}
-	DesktopEffectToggle {
+	Lib.DesktopEffectToggle {
 		id: showDesktopGridToggle
 		effectId: 'desktopgrid'
 	}
@@ -69,7 +68,7 @@ Kirigami.FormLayout {
 		}
 
 		//---
-		KPackageModel {
+		Lib.KPackageModel {
 			id: kwinScriptModel
 			packageType: 'KWin/Script'
 		}
@@ -94,7 +93,7 @@ Kirigami.FormLayout {
 						}
 					}
 				}
-				LinkText {
+				Lib.LinkText {
 					text: '<a href="' + modelData.url + '">' + modelData.url + '</a>'
 				}
 			}
@@ -139,7 +138,9 @@ Kirigami.FormLayout {
 		]
 	}
 
-	ConfigLabel {
+	Lib.LinkText {
+		Layout.fillWidth: true
+		wrapMode: Text.Wrap
 		text: i18n("Should we use a Virtual Desktop indicator similar to Unity 7? This feature is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a> Plasma Style by default.")
 	}
 
