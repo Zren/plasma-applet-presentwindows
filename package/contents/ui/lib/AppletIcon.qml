@@ -1,4 +1,4 @@
-// Version: 3
+// Version: 4
 
 import QtQuick 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
@@ -8,7 +8,7 @@ Item {
 	property string source: ''
 	property bool active: false
 	readonly property bool usingPackageSvg: filename // plasmoid.file() returns "" if file doesn't exist.
-	readonly property string filename: source ? plasmoid.file("", "icons/" + source + '.svg') : ""
+	readonly property string filename: source ? plasmoid.file('', 'icons/' + source + '.svg') : ''
 	readonly property int minSize: Math.min(width, height)
 	property bool smooth: true
 
