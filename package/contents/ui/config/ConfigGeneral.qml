@@ -68,7 +68,7 @@ Kirigami.FormLayout {
 					text: modelData.pluginId
 					enabled: kwinScriptModel.contains(modelData.pluginId)
 					QQC2.ButtonGroup.group: clickCommandGroup.group
-					checked: modelData.value === configValue
+					checked: modelData.value === plasmoid.configuration[clickCommandGroup.configKey]
 					onClicked: {
 						focus = true
 						if (clickCommandGroup.configKey) {
