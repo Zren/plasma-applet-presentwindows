@@ -44,7 +44,7 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Appearance"
-msgstr ""
+msgstr "Uiterlijk"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Icon"
@@ -60,7 +60,7 @@ msgstr "Unity 7-thema gebruiken"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Never"
-msgstr ""
+msgstr "Nooit"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "When Plasma Style is Unity Ambiance"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Always"
-msgstr ""
+msgstr "Altijd"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid ""

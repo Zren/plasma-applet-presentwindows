@@ -36,5 +36,5 @@ Or if you know how to make a pull request
 |  Locale  |  Lines  | % Done|
 |----------|---------|-------|
 | Template |      20 |       |
-| nl       |    9/20 |   45% |
-| pl       |    9/20 |   45% |
+| nl       |   12/20 |   60% |
+| pl       |   12/20 |   60% |

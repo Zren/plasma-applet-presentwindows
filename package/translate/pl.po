@@ -45,7 +45,7 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Appearance"
-msgstr ""
+msgstr "Wygląd"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Icon"
@@ -61,7 +61,7 @@ msgstr "Motyw Unity 7"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "When Plasma Style is Unity Ambiance"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Always"
-msgstr ""
+msgstr "Zawsze"
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid ""
