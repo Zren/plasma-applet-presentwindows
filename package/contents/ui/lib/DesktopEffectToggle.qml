@@ -2,13 +2,18 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 
-ConfigSection {
-	label: "Desktop Effect Toggle"
+QtObject {
+	id: desktopEffectToggle
 	property string effectId
 	property bool loaded: false
-	property bool effectEnabled: true
+	property bool effectEnabled: false
 
-	ExecUtil {
+
+	function toggle() {
+		executable.toggleState()
+	}
+
+	property ExecUtil executable: ExecUtil {
 		id: executable
 		property string readStateCommand: 'qdbus org.kde.KWin /Effects isEffectLoaded ' + effectId
 		property string toggleStateCommand: 'qdbus org.kde.KWin /Effects toggleEffect ' + effectId
@@ -26,7 +31,7 @@ ConfigSection {
 			executable.exec(toggleStateCommand)
 		}
 		function saveState() {
-			var isCurrentlyEnabled = toggleButton.checked
+			var isCurrentlyEnabled = effectEnabled
 			executable.exec(saveStateCommand + ' ' + (isCurrentlyEnabled ? 'true' : 'false'))
 		}
 		Component.onCompleted: {
@@ -38,7 +43,6 @@ ConfigSection {
 				var value = executable.trimOutput(stdout)
 				value = value === 'true' // cast to boolean
 				effectEnabled = value
-				toggleButton.checked = value
 				loaded = true
 				if (saveOnRead) {
 					saveOnRead = false
@@ -58,14 +62,6 @@ ConfigSection {
 			} else {
 				return false
 			}
-		}
-	}
-
-	CheckBox {
-		id: toggleButton
-		text: i18n("Enabled")
-		onClicked: {
-			executable.toggleState()
 		}
 	}
 }

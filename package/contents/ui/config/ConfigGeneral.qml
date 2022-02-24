@@ -12,54 +12,61 @@ import "../libconfig" as LibConfig
 
 
 Kirigami.FormLayout {
-	id: formLayout
 
-	property string cfg_clickCommand
 
+	//-------------------------------------------------------
+	LibConfig.Heading {
+		text: i18n("Behavior")
+		useThickTopMargin: false
+	}
 	DesktopEffectToggle {
 		id: overviewToggle
-		label: i18n("Overview Effect")
 		effectId: 'overview'
-		Label {
-			visible: overviewToggle.loaded && !overviewToggle.effectEnabled
-			text: i18n("Button will not work when the Overview desktop effect is disabled.")
-		}
 	}
-
 	DesktopEffectToggle {
 		id: presentWindowsToggle
-		label: i18n("Present Windows Effect")
 		effectId: 'presentwindows'
-		Label {
-			visible: presentWindowsToggle.loaded && !presentWindowsToggle.effectEnabled
-			text: i18n("Button will not work when the Present Windows desktop effect is disabled.")
-		}
 	}
-
 	DesktopEffectToggle {
 		id: showDesktopGridToggle
-		label: i18n("Show Desktop Grid Effect")
 		effectId: 'desktopgrid'
-		Label {
-			visible: showDesktopGridToggle.loaded && !showDesktopGridToggle.effectEnabled
-			text: i18n("Button will not work when the Desktop Grid desktop effect is disabled.")
-		}
 	}
-
-
-
 	LibConfig.RadioButtonGroup {
 		id: clickCommandGroup
 		configKey: 'clickCommand'
 		Kirigami.FormData.label: i18n("Click")
-		Kirigami.FormData.buddyFor: null // TODO: atm it attaches to Parachute since it loads first. It needs to bind to ExposeAll.
-		model: [
-			{ value: 'Overview', text: i18nd("kwin_effects", "Toggle Overview") },
-			{ value: 'ExposeAll', text: i18nd("kwin_effects", "Toggle Present Windows (All desktops)") },
-			{ value: 'Expose', text: i18nd("kwin_effects", "Toggle Present Windows (Current desktop)") },
-			{ value: 'ExposeClass', text: i18nd("kwin_effects", "Toggle Present Windows (Window class)") },
-			{ value: 'ShowDesktopGrid', text: i18nd("kwin_effects", "Toggle Desktop Grid") },
-		]
+		Kirigami.FormData.buddyFor: null // Note: it attaches to the first CheckBox in the Repeater since it loads first.
+		model: []
+
+		//---
+		Repeater {
+			model: [
+				{ value: 'Overview', text: i18nd("kwin_effects", "Toggle Overview"), effectToggle: overviewToggle },
+				{ value: 'ExposeAll', text: i18nd("kwin_effects", "Toggle Present Windows (All desktops)"), effectToggle: presentWindowsToggle },
+				{ value: 'Expose', text: i18nd("kwin_effects", "Toggle Present Windows (Current desktop)"), effectToggle: presentWindowsToggle },
+				{ value: 'ExposeClass', text: i18nd("kwin_effects", "Toggle Present Windows (Window class)"), effectToggle: presentWindowsToggle },
+				{ value: 'ShowDesktopGrid', text: i18nd("kwin_effects", "Toggle Desktop Grid"), effectToggle: showDesktopGridToggle },
+			]
+			RowLayout {
+				QQC2.RadioButton {
+					text: modelData.text
+					enabled: modelData.effectToggle.loaded && modelData.effectToggle.effectEnabled
+					QQC2.ButtonGroup.group: clickCommandGroup.group
+					checked: modelData.value === plasmoid.configuration[clickCommandGroup.configKey]
+					onClicked: {
+						focus = true
+						if (clickCommandGroup.configKey) {
+							plasmoid.configuration[clickCommandGroup.configKey] = modelData.value
+						}
+					}
+				}
+				QQC2.Button {
+					visible: modelData.effectToggle.loaded && !modelData.effectToggle.effectEnabled
+					text: i18n("Enable Desktop Effect")
+					onClicked: modelData.effectToggle.toggle()
+				}
+			}
+		}
 
 		//---
 		KPackageModel {
@@ -92,6 +99,11 @@ Kirigami.FormLayout {
 				}
 			}
 		}
+	}
+
+	//-------------------------------------------------------
+	LibConfig.Heading {
+		text: i18n("Appearance")
 	}
 
 	LibConfig.AppletIconField {
