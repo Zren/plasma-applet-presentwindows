@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: presentwindows\n"
 "Report-Msgid-Bugs-To: https://github.com/Zren/plasma-applet-presentwindows\n"
-"POT-Creation-Date: 2020-04-07 15:50-0400\n"
+"POT-Creation-Date: 2022-02-23 22:57-0500\n"
 "PO-Revision-Date: 2018-10-13 21:44+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -18,34 +18,33 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../metadata.desktop
+msgid "Present Windows Button"
+msgstr ""
+
+#: ../metadata.desktop
+msgid "Trigger the Present Windows desktop effect's shortcut with a click."
+msgstr ""
+
 #: ../contents/config/config.qml
 msgid "General"
 msgstr "Algemeen"
 
 #: ../contents/ui/config/ConfigGeneral.qml
-msgid "Present Windows Effect"
-msgstr "Effect voor Vensters presenteren"
-
-#: ../contents/ui/config/ConfigGeneral.qml
-msgid ""
-"Button will not work when the Present Windows desktop effect is disabled."
+msgid "Behavior"
 msgstr ""
-"De knop werkt niet als het bureaubladeffect Vensters presenteren is "
-"uitgeschakeld."
-
-#: ../contents/ui/config/ConfigGeneral.qml
-msgid "Show Desktop Grid Effect"
-msgstr "Bureaubladraster-effect tonen"
-
-#: ../contents/ui/config/ConfigGeneral.qml
-msgid "Button will not work when the Desktop Grid desktop effect is disabled."
-msgstr ""
-"De knop werkt niet als het bureaubladeffect Bureaubladraster is "
-"uitgeschakeld."
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Click"
 msgstr "Klik"
+
+#: ../contents/ui/config/ConfigGeneral.qml
+msgid "Enable Desktop Effect"
+msgstr ""
+
+#: ../contents/ui/config/ConfigGeneral.qml
+msgid "Appearance"
+msgstr ""
 
 #: ../contents/ui/config/ConfigGeneral.qml
 msgid "Icon"
@@ -60,26 +59,31 @@ msgid "Use Unity 7 Theme"
 msgstr "Unity 7-thema gebruiken"
 
 #: ../contents/ui/config/ConfigGeneral.qml
+msgid "Never"
+msgstr ""
+
+#: ../contents/ui/config/ConfigGeneral.qml
+msgid "When Plasma Style is Unity Ambiance"
+msgstr ""
+
+#: ../contents/ui/config/ConfigGeneral.qml
+msgid "Always"
+msgstr ""
+
+#: ../contents/ui/config/ConfigGeneral.qml
 msgid ""
 "Should we use a Virtual Desktop indicator similar to Unity 7? This feature "
 "is enabled for the <a href=\"https://store.kde.org/p/998797/\">Unity "
-"Ambiance</a> desktop theme by default."
+"Ambiance</a> Plasma Style by default."
 msgstr ""
-"Moet er een virtuele bureaubladindicator in de stijl van Unity 7 worden "
-"gebruikt? Deze functie is standaard ingeschakeld voor het bureaubladthema <a "
-"href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a>."
 
 #: ../contents/ui/config/ConfigGeneral.qml
-msgid "<b>Current Desktop Theme:</b> %1"
-msgstr "<b>Huidig bureaubladthema:</b> %1"
+msgid "<b>Current Plasma Style:</b> %1"
+msgstr ""
 
-#: ../contents/ui/lib/AppletVersion.qml
-msgid "<b>Version:</b> %1"
-msgstr "<b>Versie:</b> %1"
-
-#: ../contents/ui/lib/DesktopEffectToggle.qml
-msgid "Enabled"
-msgstr "Ingeschakeld"
+#: ../contents/ui/Main.qml
+msgid "Show Overview"
+msgstr ""
 
 #: ../contents/ui/Main.qml
 msgid "Present Windows (All desktops)"
@@ -96,3 +100,39 @@ msgstr "Vensters presenteren (vensterklasse)"
 #: ../contents/ui/Main.qml
 msgid "Show Desktop Grid"
 msgstr "Bureaubladraster tonen"
+
+#~ msgid "Present Windows Effect"
+#~ msgstr "Effect voor Vensters presenteren"
+
+#~ msgid ""
+#~ "Button will not work when the Present Windows desktop effect is disabled."
+#~ msgstr ""
+#~ "De knop werkt niet als het bureaubladeffect Vensters presenteren is "
+#~ "uitgeschakeld."
+
+#~ msgid "Show Desktop Grid Effect"
+#~ msgstr "Bureaubladraster-effect tonen"
+
+#~ msgid ""
+#~ "Button will not work when the Desktop Grid desktop effect is disabled."
+#~ msgstr ""
+#~ "De knop werkt niet als het bureaubladeffect Bureaubladraster is "
+#~ "uitgeschakeld."
+
+#~ msgid ""
+#~ "Should we use a Virtual Desktop indicator similar to Unity 7? This "
+#~ "feature is enabled for the <a href=\"https://store.kde.org/p/998797/"
+#~ "\">Unity Ambiance</a> desktop theme by default."
+#~ msgstr ""
+#~ "Moet er een virtuele bureaubladindicator in de stijl van Unity 7 worden "
+#~ "gebruikt? Deze functie is standaard ingeschakeld voor het bureaubladthema "
+#~ "<a href=\"https://store.kde.org/p/998797/\">Unity Ambiance</a>."
+
+#~ msgid "<b>Current Desktop Theme:</b> %1"
+#~ msgstr "<b>Huidig bureaubladthema:</b> %1"
+
+#~ msgid "<b>Version:</b> %1"
+#~ msgstr "<b>Versie:</b> %1"
+
+#~ msgid "Enabled"
+#~ msgstr "Ingeschakeld"
