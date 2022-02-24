@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 
-import "lib"
+import "lib" as Lib
 
 Item {
 	id: widget
@@ -50,7 +50,7 @@ Item {
 		Layout.maximumWidth: inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1
 		Layout.maximumHeight: inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1
 
-		AppletIcon {
+		Lib.AppletIcon {
 			id: icon
 			anchors.fill: parent
 			visible: !unityThemeDetector.useUnityTheme
